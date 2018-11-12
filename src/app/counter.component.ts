@@ -5,7 +5,7 @@ import { Component, Input, EventEmitter} from '@angular/core';
   template: `
     <p>
     <button (click)="add()">+</button>
-    {{counter}}
+    <span [ngClass]="ngClass" (change)="change()">{{counter}}</span>
     <button (click)="few()">-</button>
     </p>
   `,
@@ -34,10 +34,13 @@ export class CounterComponent {
 
   changes(){
     if(this.counter>=this.maxLimit)
-
+      this.ngClass.overMax=true;
+    if(this.counter<=this.minLimit)
+      this.ngClass.underMin=true;
   }
 
-  ngClass
+  ngClass={overMax:false,underMin:false};
+
   add(){
     this.counter++;
     this.onValueChange.emit(this.counter);

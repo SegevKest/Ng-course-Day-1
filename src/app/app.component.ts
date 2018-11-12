@@ -4,10 +4,14 @@ import { bindCallback } from 'rxjs';
 @Component({
   selector: 'app-root',
   template: `
+
+  <todo-list></todo-list>
+  <hr>
+  
+  <h1>Counter</h1>
   <app-counter [init]="100"></app-counter>
 
-
-    <hr>
+  <hr>
     <div>
     <h1>*ngFor</h1>
     <p class="box" *ngFor="let item of [11,12,13];
